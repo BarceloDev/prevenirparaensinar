@@ -1,0 +1,166 @@
+/* =====================================================
+   PREVENIR PARA ENSINAR — estilos do site (todas as páginas)
+   Organização:
+   1. Variáveis (cores e fonte)   2. Base
+   3. Cabeçalho                   4. Seções e títulos
+   5. Caixas e componentes        6. Tabelas
+   7. Blocos específicos          8. Responsivo
+   ===================================================== */
+
+/* ---------- 1. VARIÁVEIS: altere cores/fonte aqui ---------- */
+:root {
+  --azul-claro: #81a8cf;   /* fundo das seções azuis */
+  --branco: #ffffff;
+  --azul-escuro: #1a3954;  /* títulos e textos de destaque */
+  --azul-medio: #446a8f;   /* caixa "Para o gestor" */
+  --azul-tabela: #234e7b;  /* cabeçalho das tabelas escuras (ajuste se quiser) */
+  --linha: #111111;        /* borda fina das caixas */
+  --fonte: 'Montserrat', Arial, sans-serif;
+  --largura: 1040px;       /* largura máxima do conteúdo */
+}
+
+/* ---------- 2. BASE ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--fonte); color: #111; background: var(--branco); line-height: 1.5; font-size: 15px; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+b, strong { font-weight: 700; }
+
+/* ---------- 3. CABEÇALHO (igual nas 4 páginas) ---------- */
+.topo { position: sticky; top: 0; z-index: 10; background: var(--branco); box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.topo .container { display: flex; align-items: center; justify-content: space-between; padding: 8px 24px; }
+.logo-topo { width: 28px; height: 28px; border-radius: 50%; background: var(--azul-claro); padding: 3px; }
+.menu { display: flex; gap: 18px; }
+.menu a { font-size: 12px; color: #777; text-decoration: none; }
+.menu a.ativo { color: #000; font-weight: 600; } /* classe aplicada pelo script.js */
+
+/* ---------- 4. SEÇÕES E TÍTULOS ---------- */
+.container { max-width: var(--largura); margin: 0 auto; }
+.secao { padding: 56px 24px; }          /* fundo branco por padrão */
+.secao.azul { background: var(--azul-claro); }
+
+.titulo { font-weight: 300; font-size: clamp(28px, 4.2vw, 46px); line-height: 1.1; color: var(--azul-escuro); }
+.titulo b { font-weight: 700; }
+.titulo.branco { color: var(--branco); }
+.titulo-medio { font-size: clamp(22px, 3vw, 32px); }
+.centro { text-align: center; }
+.subtitulo { font-weight: 700; font-size: 20px; color: var(--azul-escuro); margin-bottom: 14px; }
+
+/* ---------- 5. CAIXAS E COMPONENTES ---------- */
+.caixa { background: var(--branco); border: 1.5px solid var(--linha); border-radius: 14px; padding: 22px 24px; font-size: 13.5px; }
+.caixa p + p { margin-top: 12px; }
+.caixa.azul { background: var(--azul-claro); color: var(--branco); }
+.caixa.escura { background: var(--azul-medio); color: var(--branco); }
+.caixa.centro { font-size: 15px; }
+
+.grade { display: grid; gap: 22px; }
+.col-2 { grid-template-columns: repeat(2, 1fr); }
+.col-3 { grid-template-columns: repeat(3, 1fr); }
+.alinha { align-items: center; }
+
+/* "etiqueta" azul usada em Estresse/Ansiedade/etc. */
+.rotulo { display: block; background: var(--azul-claro); color: var(--azul-escuro); font-weight: 800; font-size: 11px; text-transform: uppercase; text-align: center; padding: 6px 10px; border-radius: 6px; margin-bottom: 8px; }
+/* título dentro de "balão" azul */
+.balao { display: inline-block; background: var(--azul-claro); color: var(--branco); font-weight: 700; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.15; padding: 10px 18px; border-radius: 18px; }
+
+/* setas decorativas desenhadas em SVG */
+.seta { width: 90px; height: 50px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; }
+.seta.escura { color: var(--azul-medio); }
+.seta.branca { color: var(--branco); }
+
+/* ---------- 6. TABELAS ---------- */
+table { width: 100%; border-collapse: collapse; background: var(--branco); font-size: 12px; }
+th, td { border: 1px solid var(--linha); padding: 10px 12px; text-align: left; vertical-align: middle; }
+th { background: var(--azul-tabela); color: var(--branco); font-size: 11px; }
+tbody tr:nth-child(even) td { background: #eef3f8; }
+table.claro th { background: var(--azul-claro); color: var(--branco); font-size: 14px; text-align: center; }
+table.claro tbody tr:nth-child(even) td { background: var(--branco); }
+table.claro td:first-child { text-align: center; }
+.diag th { font-size: 15px; }
+.diag td { text-align: center; font-size: 12px; }
+.diag td:first-child { font-size: 17px; }
+.diag td:nth-child(2) { font-size: 12px; }
+
+/* ---------- 7. BLOCOS ESPECÍFICOS ---------- */
+/* Capa */
+.capa { padding-top: 70px; }
+.capa-logo { width: min(620px, 100%); margin: 0 auto 6px; }
+.capa-sub { color: var(--branco); text-align: center; font-size: 16px; margin-bottom: 60px; }
+.citacao { font-weight: 300; font-size: 22px; line-height: 1.25; }
+.chamada { color: var(--branco); font-weight: 700; font-size: 11px; text-align: center; line-height: 1.2; }
+.sobre { margin-top: 28px; }
+.sobre h2 { color: var(--branco); font-size: 22px; margin-bottom: 12px; }
+.sobre .caixa { font-size: 11.5px; }
+.sobre .caixa p + p { margin-top: 6px; }
+.sobre .azul-txt { color: var(--azul-medio); }
+
+/* "Você sabia?" */
+.fato { background: var(--azul-claro); color: var(--azul-escuro); text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 14px; border-radius: 6px; }
+.fato b { font-weight: 800; }
+
+/* Photo + texto lado a lado */
+.foto { margin: 0 auto; }
+
+/* Lista de 6 atitudes do gestor */
+.atitude h3 { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--azul-escuro); margin-bottom: 6px; }
+.atitude p { font-size: 12px; }
+
+/* Passo a passo (Diagnosticar, Planejar...) — alterna esquerda/direita */
+.passo { max-width: 62%; text-align: center; }
+.passo h3 { color: var(--azul-escuro); font-size: 18px; margin-bottom: 6px; }
+.passo.direita { margin-left: auto; }
+.passo.caixa { background: var(--azul-claro); color: var(--branco); font-size: 12.5px; }
+
+/* Perguntas do diagnóstico */
+.pergunta { font-size: 9.5px; font-weight: 600; text-transform: uppercase; color: var(--azul-escuro); }
+
+/* Biblioteca (página 2) — textos pequenos e links */
+.faixa-biblioteca { padding: 36px 24px; border-top: 1px solid rgba(255,255,255,.3); }
+.faixa-biblioteca h2 { color: var(--azul-escuro); font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+.biblioteca { font-size: 12px; line-height: 1.45; }
+.biblioteca b { color: var(--azul-escuro); display: block; }
+.biblioteca .bloco { margin-bottom: 12px; }
+.biblioteca a { word-break: break-all; }
+
+/* Canais de apoio / Para o gestor */
+.canais h2, .gestor h2 { font-size: clamp(36px, 5vw, 52px); font-weight: 800; line-height: 1; text-align: center; margin-bottom: 14px; }
+.canais h2 { color: var(--azul-escuro); }
+.gestor h2 { color: var(--branco); }
+.canais p, .gestor p { font-size: 11.5px; }
+
+/* Quem somos / Considerações finais */
+.pagina-texto h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: var(--azul-escuro); margin-bottom: 14px; }
+.pagina-texto h3 { font-size: 12px; font-weight: 800; color: var(--azul-escuro); text-transform: uppercase; margin: 16px 0 4px; }
+.pagina-texto p { font-size: 12.5px; }
+.logo-final { width: min(380px, 80%); margin: 28px auto 0; }
+
+/* ---------- 8. RESPONSIVO (celular/tablet) ---------- */
+@media (max-width: 760px) {
+  .col-2, .col-3 { grid-template-columns: 1fr; }
+  .passo { max-width: 100%; }
+  .seta { display: none; }
+  .menu { gap: 10px; }
+}
+
+#avaliacao {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+#avaliacao a {
+  color: blue;
+  text-decoration: none;
+}
+
+#avaliacao img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
